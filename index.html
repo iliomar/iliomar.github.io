@@ -6,9 +6,10 @@
   <title>Iliomar Rodriguez Ramos</title>
   <style>
     :root {
-      --green: #2ecc71;
-      --dark: #2c3e50;
-      --light: #ecf0f1;
+      --green: #14532d;
+      --dark: #1a1a1a;
+      --light: #f4f4f4;
+      --accent: #22c55e;
     }
     * {
       box-sizing: border-box;
@@ -20,24 +21,40 @@
       background: var(--light);
       color: var(--dark);
       line-height: 1.6;
+      transition: all 0.3s ease;
     }
     header {
       background: var(--green);
       color: white;
-      padding: 1rem 2rem;
+      padding: 1.5rem;
       text-align: center;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
     }
     nav {
       display: flex;
       justify-content: center;
       gap: 2rem;
-      background: #27ae60;
-      padding: 0.5rem 0;
+      background: var(--dark);
+      padding: 1rem 0;
     }
     nav a {
-      color: white;
+      color: var(--light);
       text-decoration: none;
       font-weight: bold;
+      position: relative;
+    }
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--accent);
+      transition: width 0.3s;
+    }
+    nav a:hover::after {
+      width: 100%;
     }
     .container {
       max-width: 900px;
@@ -55,20 +72,26 @@
       width: 150px;
       border-radius: 50%;
       margin-bottom: 1rem;
+      border: 3px solid var(--green);
     }
     footer {
       text-align: center;
       padding: 1rem;
-      background: #bdc3c7;
+      background: var(--dark);
+      color: white;
     }
     a.button {
       display: inline-block;
-      padding: 0.5rem 1rem;
-      background: var(--green);
+      padding: 0.6rem 1.2rem;
+      background: var(--accent);
       color: white;
       text-decoration: none;
-      border-radius: 5px;
-      margin-top: 0.5rem;
+      border-radius: 8px;
+      margin-top: 1rem;
+      transition: background 0.3s;
+    }
+    a.button:hover {
+      background: #16a34a;
     }
   </style>
 </head>
@@ -79,42 +102,18 @@
   </header>
 
   <nav>
-    <a href="#home">Home</a>
-    <a href="#research">Research</a>
-    <a href="#cv">CV</a>
-    <a href="#about">About</a>
-    <a href="#contact">Contact</a>
+    <a href="index.html">Home</a>
+    <a href="research.html">Research</a>
+    <a href="cv.html">CV</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
   </nav>
 
   <div class="container">
-    <section id="home">
+    <section>
       <h2>Welcome</h2>
       <img src="https://via.placeholder.com/150" alt="Profile photo" class="profile">
       <p>Hello! I'm Iliomar, a passionate physicist from Puerto Rico currently pursuing my Master's at the University of Puerto Rico at Mayagüez. I work on particle physics research with the CMS experiment at Fermilab, exploring the deep structure of matter. I love science, nature, running, playing guitar, and learning languages like Russian.</p>
-    </section>
-
-    <section id="research">
-      <h2>Research</h2>
-      <p><strong>Current:</strong> Emerging Jet Analysis – Compact Muon Solenoid (CMS) Experiment, Fermilab</p>
-      <p><strong>Past:</strong> Neutrino research at LANL · Environmental science research at the University of Vermont</p>
-    </section>
-
-    <section id="cv">
-      <h2>CV</h2>
-      <p>You can download my full CV here:</p>
-      <a href="cv/IliomarRodriguez_CV.pdf" class="button">Download CV</a>
-    </section>
-
-    <section id="about">
-      <h2>About Me</h2>
-      <p>I grew up in Puerto Rico, surrounded by nature and inspired by the stars. My scientific curiosity drives me to explore the universe — from the tiniest particles to the grandest galaxies. In my free time, I run, play guitar, and learn new things. I believe science is not just a career, but a lifelong adventure.</p>
-    </section>
-
-    <section id="contact">
-      <h2>Contact</h2>
-      <p>Email: <a href="mailto:iliomar@email.com">iliomar@email.com</a></p>
-      <p>GitHub: <a href="https://github.com/YOUR_USERNAME" target="_blank">github.com/YOUR_USERNAME</a></p>
-      <p>LinkedIn: <a href="https://linkedin.com/in/YOUR_LINK" target="_blank">linkedin.com/in/YOUR_LINK</a></p>
     </section>
   </div>
 

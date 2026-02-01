@@ -3,40 +3,310 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Research - Iliomar Rodriguez Ramos</title>
+  <title>Projects · Iliomar Rodriguez Ramos</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Small page-specific layout helpers (kept minimal) */
+    .page-head{
+      padding: 34px 0 6px;
+    }
+    .page-title{
+      font-size: clamp(30px, 3.2vw, 42px);
+      letter-spacing: -0.6px;
+      line-height: 1.1;
+    }
+    .page-sub{
+      margin-top: 10px;
+      color: var(--muted);
+      max-width: 72ch;
+    }
+
+    .projects-grid{
+      margin-top: 18px;
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+
+    .project{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 16px;
+      align-items: start;
+    }
+    @media (max-width: 900px){
+      .project{ grid-template-columns: 1fr; }
+    }
+
+    .tags{
+      margin-top: 10px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+    }
+    .tag{
+      font-size: 12px;
+      padding: 7px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.05);
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    .meta-box{
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+    }
+    .kv{
+      padding: 14px;
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.05);
+    }
+    .kv .k{
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing:.3px;
+      text-transform: uppercase;
+    }
+    .kv .v{
+      margin-top: 6px;
+      font-weight: 800;
+      letter-spacing: -0.2px;
+    }
+    .kv .s{
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .project-actions{
+      margin-top: 12px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+    }
+    .mini-cta{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding: 10px 12px;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.06);
+      box-shadow: var(--shadow2);
+      font-weight: 800;
+      color: var(--text);
+      transition: transform .2s ease, border-color .2s ease, background .2s ease;
+    }
+    .mini-cta:hover{
+      transform: translateY(-1px);
+      border-color: rgba(134,239,172,.35);
+      background: rgba(34,197,94,.10);
+    }
+
+    .note{
+      color: var(--muted);
+      font-size: 13px;
+      margin-top: 10px;
+    }
+  </style>
 </head>
+
 <body>
-  <header>
-    <h1>Research</h1>
-    <p>Discovering the universe through data and particles</p>
+  <div class="grain"></div>
+
+  <!-- NAV -->
+  <header class="nav">
+    <div class="wrap nav-inner">
+      <div class="brand">
+        <div class="dot"></div>
+        <div>Iliomar Rodriguez Ramos</div>
+      </div>
+
+      <nav class="links" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="research.html">Projects</a>
+        <a href="outreach.html">Outreach</a>
+        <a href="cv.html">CV</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+
+      <button class="btn" id="themeBtn" title="Toggle theme">
+        <span id="themeIcon">🌙</span>
+        <span class="k">theme</span>
+      </button>
+    </div>
   </header>
 
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="research.html">Research</a>
-    <a href="cv.html">CV</a>
-    <a href="about.html">About</a>
-    <a href="contact.html">Contact</a>
-  </nav>
-
-  <div class="container">
-    <section>
-      <h2>Current Research</h2>
-      <p><strong>Emerging Jet Analysis</strong> – Working on the Compact Muon Solenoid (CMS) Experiment at Fermilab to investigate exotic signals possibly linked to dark sector models and beyond the Standard Model physics.</p>
+  <main class="wrap">
+    <!-- Header -->
+    <section class="page-head fade-up">
+      <div class="tagline">Selected work <span>· research + engineering</span></div>
+      <h1 class="page-title">Projects</h1>
+      <p class="page-sub">
+        Here are the three main tracks I’m working on right now. Each one is a blend of physics goals,
+        ML methods, and practical software work to make pipelines reliable and reproducible.
+      </p>
     </section>
 
-    <section>
-      <h2>Previous Projects</h2>
-      <ul>
-        <li><strong>Neutrino Research at LANL</strong> – Participated in experimental efforts studying neutrino properties and detection technologies.</li>
-        <li><strong>Environmental Science Research</strong> – Collaborated on erosion and landscape studies at the University of Vermont, integrating physics and geology.</li>
-      </ul>
-    </section>
-  </div>
+    <!-- Projects -->
+    <section class="projects-grid fade-up d2">
 
-  <footer>
-    <p>&copy; 2025 Iliomar Rodriguez Ramos. All rights reserved.</p>
-  </footer>
+      <!-- 1) Expand AI / End-to-End -->
+      <article class="section project">
+        <div>
+          <h2><span class="bar"></span> Expand AI · End-to-End Simulation (FlowSim/CFM)</h2>
+          <p class="page-sub" style="margin-top:6px;">
+            Exploring end-to-end approaches that connect generation → detector response → reconstruction,
+            with the goal of validating baselines and identifying research directions (e.g., unfolding-style studies,
+            physics-informed constraints, fast simulation ideas).
+          </p>
+
+          <div class="tags">
+            <span class="tag">End-to-End</span>
+            <span class="tag">Flow Matching / CFM</span>
+            <span class="tag">Simulation</span>
+            <span class="tag">Validation</span>
+          </div>
+
+          <div class="project-actions">
+            <a class="mini-cta" href="#" target="_blank" rel="noopener">Repository</a>
+            <a class="mini-cta" href="#" target="_blank" rel="noopener">Notes / writeup</a>
+          </div>
+
+          <div class="note">
+            (Replace the links once you decide which repo/writeup you want public.)
+          </div>
+        </div>
+
+        <div class="meta-box">
+          <div class="kv">
+            <div class="k">Goal</div>
+            <div class="v">Understand + validate baseline behavior</div>
+            <div class="s">Reproduce key plots, identify failure modes, propose extensions.</div>
+          </div>
+          <div class="kv">
+            <div class="k">What I’m building</div>
+            <div class="v">Clean experiments + documentation</div>
+            <div class="s">So results are easy to rerun and explain.</div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 2) Trigger Efficiency -->
+      <article class="section project">
+        <div>
+          <h2><span class="bar"></span> Trigger Efficiency Modeling</h2>
+          <p class="page-sub" style="margin-top:6px;">
+            Modeling trigger turn-on behavior with neural networks to improve efficiency estimates and
+            systematic understanding. Focused on robust training, careful validation, and uncertainty-minded workflows.
+          </p>
+
+          <div class="tags">
+            <span class="tag">CMS</span>
+            <span class="tag">Triggers</span>
+            <span class="tag">MLP / Residual MLP</span>
+            <span class="tag">Uncertainties</span>
+          </div>
+
+          <div class="project-actions">
+            <a class="mini-cta" href="#" target="_blank" rel="noopener">Repository</a>
+            <a class="mini-cta" href="#" target="_blank" rel="noopener">Slides / updates</a>
+          </div>
+        </div>
+
+        <div class="meta-box">
+          <div class="kv">
+            <div class="k">Goal</div>
+            <div class="v">Stable, physics-ready efficiency model</div>
+            <div class="s">Generalizes well and tells a clear story in plots.</div>
+          </div>
+          <div class="kv">
+            <div class="k">What I focus on</div>
+            <div class="v">Overtraining prevention + robust eval</div>
+            <div class="s">More events, better splits, sanity checks, uncertainty estimates.</div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 3) ML4DQM -->
+      <article class="section project">
+        <div>
+          <h2><span class="bar"></span> ML4DQM · Detector Quality Monitoring</h2>
+          <p class="page-sub" style="margin-top:6px;">
+            Using ML methods to help detect anomalies in DQM histograms and support operations.
+            Working with matrix factorization / anomaly detection ideas and validating behavior on real monitoring outputs.
+          </p>
+
+          <div class="tags">
+            <span class="tag">CMS DQM</span>
+            <span class="tag">Anomaly Detection</span>
+            <span class="tag">NMF</span>
+            <span class="tag">2D Histograms</span>
+          </div>
+
+          <div class="project-actions">
+            <a class="mini-cta" href="#" target="_blank" rel="noopener">Repository</a>
+            <a class="mini-cta" href="#" target="_blank" rel="noopener">Summary</a>
+          </div>
+        </div>
+
+        <div class="meta-box">
+          <div class="kv">
+            <div class="k">Goal</div>
+            <div class="v">Reliable anomaly signals</div>
+            <div class="s">Useful, interpretable alerts that don’t spam.</div>
+          </div>
+          <div class="kv">
+            <div class="k">What I’m building</div>
+            <div class="v">Evaluation + visualization</div>
+            <div class="s">So decisions are backed by clear evidence.</div>
+          </div>
+        </div>
+      </article>
+
+    </section>
+
+    <footer>
+      © <span id="year"></span> Iliomar Rodriguez Ramos · Built with GitHub Pages
+    </footer>
+  </main>
+
+  <script>
+    // Footer year
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Theme toggle (persists)
+    const root = document.documentElement;
+    const btn = document.getElementById("themeBtn");
+    const icon = document.getElementById("themeIcon");
+    const saved = localStorage.getItem("theme");
+    if (saved) root.setAttribute("data-theme", saved);
+
+    function updateIcon(){
+      const isLight = root.getAttribute("data-theme") === "light";
+      icon.textContent = isLight ? "☀️" : "🌙";
+    }
+    updateIcon();
+
+    btn.addEventListener("click", () => {
+      const current = root.getAttribute("data-theme");
+      const next = current === "light" ? "" : "light";
+      if (next) root.setAttribute("data-theme", next);
+      else root.removeAttribute("data-theme");
+      localStorage.setItem("theme", next || "");
+      updateIcon();
+    });
+  </script>
 </body>
 </html>

@@ -3,33 +3,116 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CV - Iliomar Rodriguez Ramos</title>
+  <title>CV · Iliomar Rodriguez Ramos</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
-  <header>
-    <h1>Curriculum Vitae</h1>
-    <p>My academic and professional trajectory</p>
+  <div class="grain"></div>
+
+  <!-- NAV -->
+  <header class="nav">
+    <div class="wrap nav-inner">
+      <div class="brand">
+        <div class="dot"></div>
+        <div>Iliomar Rodriguez Ramos</div>
+      </div>
+
+      <nav class="links" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="research.html">Projects</a>
+        <a href="outreach.html">Outreach</a>
+        <a href="cv.html">CV</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+
+      <button class="btn" id="themeBtn" title="Toggle theme">
+        <span id="themeIcon">🌙</span>
+        <span class="k">theme</span>
+      </button>
+    </div>
   </header>
 
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="research.html">Research</a>
-    <a href="cv.html">CV</a>
-    <a href="about.html">About</a>
-    <a href="contact.html">Contact</a>
-  </nav>
-
-  <div class="container">
-    <section>
-      <h2>Download CV</h2>
-      <p>You can download my full CV in PDF format:</p>
-      <a href="cv/IliomarRodriguez_CV.pdf" class="button">Download CV</a>
+  <main class="wrap">
+    <!-- PAGE HEADER -->
+    <section class="section fade-up">
+      <div class="tagline">Curriculum Vitae</div>
+      <h1 style="margin-top:12px;">CV</h1>
+      <p class="subtitle">
+        This page will host my full academic CV. I’m currently updating and reorganizing it to reflect
+        my most recent projects, coursework, and research activities.
+      </p>
     </section>
-  </div>
 
-  <footer>
-    <p>&copy; 2025 Iliomar Rodriguez Ramos. All rights reserved.</p>
-  </footer>
+    <!-- UPDATE NOTICE -->
+    <section class="section fade-up d2">
+      <h2><span class="bar"></span> Status</h2>
+      <div class="card">
+        <div class="title">CV in progress</div>
+        <div class="meta">Last updated soon™</div>
+        <div class="desc">
+          I’m actively updating my CV to include recent work on:
+          <ul style="margin-top:10px; padding-left:18px; color:var(--muted);">
+            <li>High Energy Physics research with the CMS Experiment</li>
+            <li>Machine learning projects (trigger efficiency, ML4DQM, end-to-end simulation)</li>
+            <li>Outreach and teaching activities</li>
+          </ul>
+          <p style="margin-top:10px;">
+            Please check back soon, or feel free to <a href="contact.html" style="color:var(--mint); font-weight:800;">contact me</a>
+            if you need a current version.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    
+        <div class="card">
+          <div class="title">PDF version</div>
+          <div class="meta">Coming soon</div>
+          <div class="desc">
+            A downloadable PDF version of my CV will be available here once the update is complete.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      © <span id="year"></span> Iliomar Rodriguez Ramos · Built with GitHub Pages
+    </footer>
+  </main>
+
+  <script>
+    // Footer year
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Theme toggle
+    const root = document.documentElement;
+    const btn = document.getElementById("themeBtn");
+    const icon = document.getElementById("themeIcon");
+    const saved = localStorage.getItem("theme");
+    if (saved) root.setAttribute("data-theme", saved);
+
+    function updateIcon(){
+      const isLight = root.getAttribute("data-theme") === "light";
+      icon.textContent = isLight ? "☀️" : "🌙";
+    }
+    updateIcon();
+
+    btn.addEventListener("click", () => {
+      const current = root.getAttribute("data-theme");
+      const next = current === "light" ? "" : "light";
+      if (next) root.setAttribute("data-theme", next);
+      else root.removeAttribute("data-theme");
+      localStorage.setItem("theme", next || "");
+      updateIcon();
+    });
+  </script>
 </body>
 </html>
+

@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Outreach · Iliomar Rodriguez Ramos</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    /* small page helpers */
+    .page-head{ padding: 34px 0 6px; }
+    .page-title{
+      font-size: clamp(30px, 3.2vw, 42px);
+      letter-spacing: -0.6px;
+      line-height: 1.1;
+    }
+    .page-sub{
+      margin-top: 10px;
+      color: var(--muted);
+      max-width: 78ch;
+    }
+
+    .outreach-grid{
+      margin-top: 18px;
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 18px;
+      align-items:start;
+    }
+    @media (max-width: 900px){
+      .outreach-grid{ grid-template-columns: 1fr; }
+    }
+
+    .badge-row{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top: 14px;
+    }
+    .badge{
+      font-size: 12px;
+      padding: 7px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.05);
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .timeline{
+      display:flex;
+      flex-direction:column;
+      gap: 12px;
+      margin-top: 10px;
+    }
+    .event{
+      padding: 16px;
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.05);
+      transition: transform .2s ease, border-color .2s ease;
+    }
+    .event:hover{
+      transform: translateY(-2px);
+      border-color: rgba(134,239,172,.35);
+    }
+    .event .top{
+      display:flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .event .title{
+      font-weight: 900;
+      letter-spacing: -0.2px;
+    }
+    .event .when{
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .3px;
+      text-transform: uppercase;
+    }
+    .event .desc{
+      margin-top: 10px;
+      color: var(--muted);
+    }
+    .event .bul{
+      margin-top: 10px;
+      padding-left: 18px;
+      color: var(--muted);
+    }
+
+    .side-card .desc{
+      color: var(--muted);
+      margin-top: 10px;
+    }
+    .callout{
+      margin-top: 12px;
+      padding: 14px;
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+      background: rgba(34,197,94,.08);
+      color: var(--muted);
+    }
+    .callout strong{ color: var(--text); }
+
+    .mini-actions{
+      margin-top: 14px;
+      display:flex;
+      flex-wrap:wrap;
+      gap: 12px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="grain"></div>
+
+  <!-- NAV -->
+  <header class="nav">
+    <div class="wrap nav-inner">
+      <div class="brand">
+        <div class="dot"></div>
+        <div>Iliomar Rodriguez Ramos</div>
+      </div>
+
+      <nav class="links" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="research.html">Projects</a>
+        <a href="outreach.html">Outreach</a>
+        <a href="cv.html">CV</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+
+      <button class="btn" id="themeBtn" title="Toggle theme">
+        <span id="themeIcon">🌙</span>
+        <span class="k">theme</span>
+      </button>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <!-- Header -->
+    <section class="page-head fade-up">
+      <div class="tagline">Workshops · teaching · science communication</div>
+      <h1 class="page-title">Outreach</h1>
+      <p class="page-sub">
+        I enjoy teaching and science communication — especially workshops that help people feel confident
+        using tools that scientists actually use (terminal, Python, data workflows). Below are a few things
+        I’ve done so far, and I plan to keep growing this side of my work.
+      </p>
+
+      <div class="badge-row">
+        <span class="badge">Workshops</span>
+        <span class="badge">Mentoring</span>
+        <span class="badge">Science demos</span>
+        <span class="badge">Community</span>
+      </div>
+    </section>
+
+    <section class="outreach-grid fade-up d2">
+      <!-- LEFT: events -->
+      <section class="section">
+        <h2><span class="bar"></span> Highlights</h2>
+
+        <div class="timeline">
+          <div class="event">
+            <div class="top">
+              <div class="title">Bash / Shell Workshop</div>
+              <div class="when">Workshop</div>
+            </div>
+            <div class="desc">
+              A hands-on introduction to the terminal and practical command-line skills (navigation, scripts, and
+              workflows useful for research and computing).
+            </div>
+            <ul class="bul">
+              <li>Core commands + scripting mindset</li>
+              <li>Reproducible workflows for research</li>
+              <li>Focus on “learn by doing” examples</li>
+            </ul>
+          </div>
+
+          <div class="event">
+            <div class="top">
+              <div class="title">Python Workshop (High School Students & Teachers)</div>
+              <div class="when">Workshop</div>
+            </div>
+            <div class="desc">
+              Intro Python sessions designed for beginners, focused on building confidence and curiosity.
+              I aim to make coding feel friendly, practical, and connected to real problems.
+            </div>
+            <ul class="bul">
+              <li>Basics: variables, loops, functions, plotting</li>
+              <li>Small projects + interactive exercises</li>
+              <li>Supportive environment: “no shame questions”</li>
+            </ul>
+          </div>
+
+          <div class="event">
+            <div class="top">
+              <div class="title">Director · Demonstration Committee (SPS)</div>
+              <div class="when">Undergrad</div>
+            </div>
+            <div class="desc">
+              I served as the director of the Demonstration Committee in the Society of Physics Students (SPS),
+              leading physics demonstrations and activities to engage students and the community.
+            </div>
+            <ul class="bul">
+              <li>Organized demo planning and execution</li>
+              <li>Collaborated with other SPS members for events</li>
+              <li>Helped make physics feel exciting and approachable</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- RIGHT: philosophy + next -->
+      <aside class="section side-card">
+        <h2><span class="bar"></span> Why I do outreach</h2>
+        <p class="desc">
+          I genuinely enjoy making technical tools and science concepts feel approachable.
+          A big part of my motivation is giving people the “I can do this” moment — because that feeling
+          changes how someone sees themselves.
+        </p>
+
+        <div class="callout">
+          <strong>If you’d like me to give a workshop:</strong><br/>
+          I’m open to future sessions in Python, basic ML concepts, and research computing basics.
+          Reach out through the <a href="contact.html" style="color:var(--mint); font-weight:900;">Contact</a> page.
+        </div>
+
+        <div class="mini-actions">
+          <a class="cta" href="contact.html">Invite me →</a>
+          <a class="cta secondary" href="research.html">See projects</a>
+          <a class="cta secondary" href="about.html">More about me</a>
+        </div>
+
+        <p class="desc" style="margin-top:12px; font-size:13px;">
+          (In process.)
+        </p>
+      </aside>
+    </section>
+
+    <footer>
+      © <span id="year"></span> Iliomar Rodriguez Ramos · Built with GitHub Pages
+    </footer>
+  </main>
+
+  <script>
+    // Footer year
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Theme toggle
+    const root = document.documentElement;
+    const btn = document.getElementById("themeBtn");
+    const icon = document.getElementById("themeIcon");
+    const saved = localStorage.getItem("theme");
+    if (saved) root.setAttribute("data-theme", saved);
+
+    function updateIcon(){
+      const isLight = root.getAttribute("data-theme") === "light";
+      icon.textContent = isLight ? "☀️" : "🌙";
+    }
+    updateIcon();
+
+    btn.addEventListener("click", () => {
+      const current = root.getAttribute("data-theme");
+      const next = current === "light" ? "" : "light";
+      if (next) root.setAttribute("data-theme", next);
+      else root.removeAttribute("data-theme");
+      localStorage.setItem("theme", next || "");
+      updateIcon();
+    });
+  </script>
+</body>
+</html>

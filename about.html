@@ -3,31 +3,383 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>About - Iliomar Rodriguez Ramos</title>
+  <title>About · Iliomar Rodriguez Ramos</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="style.css" />
+
+  <style>
+    /* Page-specific styles (small + contained) */
+    .page-head{ padding: 34px 0 6px; }
+    .page-title{
+      font-size: clamp(30px, 3.2vw, 42px);
+      letter-spacing: -0.6px;
+      line-height: 1.1;
+    }
+    .page-sub{
+      margin-top: 10px;
+      color: var(--muted);
+      max-width: 75ch;
+    }
+
+    .about-grid{
+      display:grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 18px;
+      align-items: start;
+      margin-top: 18px;
+    }
+    @media (max-width: 900px){
+      .about-grid{ grid-template-columns: 1fr; }
+    }
+
+    /* Slideshow */
+    .slideshow{
+      padding: 16px;
+    }
+    .slide-wrap{
+      position: relative;
+      border-radius: var(--radius2);
+      overflow: hidden;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.04);
+      box-shadow: var(--shadow2);
+      aspect-ratio: 4 / 3;
+    }
+    .slide-wrap::after{
+      /* soft gradient overlay for readability */
+      content:"";
+      position:absolute; inset:0;
+      background: linear-gradient(180deg, rgba(0,0,0,.10), rgba(0,0,0,.55));
+      pointer-events:none;
+    }
+    html[data-theme="light"] .slide-wrap::after{
+      background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(0,0,0,.38));
+    }
+
+    .slide-img{
+      position:absolute; inset:0;
+      width:100%; height:100%;
+      object-fit: cover;
+      opacity: 0;
+      transform: scale(1.02);
+      transition: opacity .7s ease, transform 1.1s ease;
+    }
+    .slide-img.active{
+      opacity: 1;
+      transform: scale(1.00);
+    }
+
+    .caption{
+      position:absolute;
+      left: 14px;
+      right: 14px;
+      bottom: 14px;
+      z-index: 2;
+      display:flex;
+      align-items:flex-end;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    .cap-text{
+      max-width: 70%;
+    }
+    .cap-title{
+      font-weight: 900;
+      letter-spacing: -0.2px;
+      font-size: 15px;
+    }
+    .cap-sub{
+      color: rgba(234,247,239,.80);
+      font-size: 13px;
+      margin-top: 4px;
+    }
+    html[data-theme="light"] .cap-sub{ color: rgba(245,255,248,.88); }
+
+    .controls{
+      display:flex;
+      gap: 10px;
+      align-items:center;
+      justify-content:flex-end;
+      flex-wrap: wrap;
+    }
+    .icon-btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      width: 42px; height: 42px;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.08);
+      box-shadow: var(--shadow2);
+      cursor:pointer;
+      user-select:none;
+      transition: transform .2s ease, border-color .2s ease, background .2s ease;
+      font-weight: 900;
+      color: var(--text);
+    }
+    .icon-btn:hover{
+      transform: translateY(-1px);
+      border-color: rgba(134,239,172,.35);
+      background: rgba(34,197,94,.10);
+    }
+
+    .dots{
+      display:flex;
+      gap: 8px;
+      justify-content:center;
+      margin-top: 12px;
+    }
+    .dotx{
+      width: 9px; height: 9px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.10);
+      cursor:pointer;
+      transition: transform .2s ease, background .2s ease, border-color .2s ease;
+    }
+    .dotx.active{
+      background: rgba(34,197,94,.65);
+      border-color: rgba(134,239,172,.45);
+      transform: scale(1.15);
+    }
+
+    /* Right side: personal story blocks */
+    .story p{
+      color: var(--muted);
+      margin-top: 10px;
+    }
+    .story p strong{ color: var(--text); }
+
+    .highlight{
+      margin-top: 14px;
+      padding: 14px;
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.05);
+      color: var(--muted);
+    }
+    .highlight strong{ color: var(--text); }
+  </style>
 </head>
+
 <body>
-  <header>
-    <h1>About Me</h1>
-    <p>Physicist · Runner · Musician · Nature Enthusiast</p>
+  <div class="grain"></div>
+
+  <!-- NAV -->
+  <header class="nav">
+    <div class="wrap nav-inner">
+      <div class="brand">
+        <div class="dot"></div>
+        <div>Iliomar Rodriguez Ramos</div>
+      </div>
+
+      <nav class="links" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="research.html">Projects</a>
+        <a href="outreach.html">Outreach</a>
+        <a href="cv.html">CV</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+
+      <button class="btn" id="themeBtn" title="Toggle theme">
+        <span id="themeIcon">🌙</span>
+        <span class="k">theme</span>
+      </button>
+    </div>
   </header>
 
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="research.html">Research</a>
-    <a href="cv.html">CV</a>
-    <a href="about.html">About</a>
-    <a href="contact.html">Contact</a>
-  </nav>
-
-  <div class="container">
-    <section>
-      <p>I'm Iliomar, born and raised in Puerto Rico, currently pursuing my Master's in Physics at the University of Puerto Rico at Mayagüez. My interests span from particle physics and cosmology to exploring natural landscapes and languages. I enjoy running through tropical trails, playing guitar during sunset, and diving into Russian literature and linguistics. Science, music, and nature fuel my life and imagination.</p>
+  <main class="wrap">
+    <!-- Header -->
+    <section class="page-head fade-up">
+      <div class="tagline">About me <span>· beyond the lab</span></div>
+      <h1 class="page-title">A little more personal</h1>
+      <p class="page-sub">
+        Physics is a big part of my life — but so are sunsets, running, music, and the curiosity that started
+        way before I knew what “HEP” meant.
+      </p>
     </section>
-  </div>
 
-  <footer>
-    <p>&copy; 2025 Iliomar Rodriguez Ramos. All rights reserved.</p>
-  </footer>
+    <section class="about-grid fade-up d2">
+      <!-- LEFT: slideshow -->
+      <aside class="section slideshow">
+        <h2><span class="bar"></span> Moments</h2>
+
+        <div class="slide-wrap" aria-label="Photo slideshow">
+          <!-- Add/replace images here. Put files in repo root (same folder). -->
+          <img class="slide-img active"
+               src="about_guitar.jpg"
+               alt="Iliomar playing classical guitar"
+               data-title="Classical guitar"
+               data-sub="Music is how I reset my brain." />
+
+          <img class="slide-img"
+               src="about_fieldtrip.jpg"
+               alt="Field trip photo"
+               data-title="Field trip days"
+               data-sub="I studied geology before switching to physics." />
+
+          <img class="slide-img"
+               src="about_sunset.jpg"
+               alt="Sunset photo"
+               data-title="Chasing sunsets"
+               data-sub="If the sky is colorful, I’m probably outside." />
+
+          <img class="slide-img"
+               src="about_you.jpg"
+               alt="Portrait or candid photo"
+               data-title="Just me"
+               data-sub="Always curious. Always learning." />
+
+          <div class="caption">
+            <div class="cap-text">
+              <div class="cap-title" id="capTitle">Classical guitar</div>
+              <div class="cap-sub" id="capSub">Music is how I reset my brain.</div>
+            </div>
+
+            <div class="controls">
+              <button class="icon-btn" id="prevBtn" aria-label="Previous photo">‹</button>
+              <button class="icon-btn" id="nextBtn" aria-label="Next photo">›</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="dots" id="dots" aria-label="Slideshow navigation"></div>
+
+        <div class="highlight">
+          <strong>Tip:</strong> if any image name is different, just change the <code>src="..."</code> above.
+          Keep them around similar size for the best look.
+        </div>
+      </aside>
+
+      <!-- RIGHT: personal text -->
+      <section class="section story">
+        <h2><span class="bar"></span> My story</h2>
+
+        <p>
+          I grew up in a small town in Puerto Rico, surrounded by nature and farm animals — mornings with roosters,
+          and food that came straight from our own soil. That connection to the natural world is probably why I’ve
+          always been obsessed with understanding how things work.
+        </p>
+
+        <p>
+          Fun twist: I started as a <strong>geology major</strong> before switching to physics. I still love field trips
+          and being outdoors — there’s something grounding about rocks, landscapes, and seeing Earth’s story written
+          in layers.
+        </p>
+
+        <p>
+          Outside of physics, I’m big on <strong>running</strong>, <strong>sunsets</strong>, and <strong>classical guitar</strong>.
+          I also enjoy science communication — I like taking complicated topics and making them feel simple and human.
+        </p>
+
+        <div class="highlight">
+          <strong>My favorite fruit:</strong> pomarrosa 🍐<br/>
+          <strong>My comfort food:</strong> pechuga rellena de plátano maduro 😮‍💨<br/>
+          <strong>My vibe:</strong> spontaneous, adventurous, and always down for a good conversation.
+        </div>
+
+        <div class="cta-row" style="margin-top: 16px;">
+          <a class="cta" href="outreach.html">See outreach →</a>
+          <a class="cta secondary" href="research.html">Back to projects</a>
+          <a class="cta secondary" href="contact.html">Contact</a>
+        </div>
+      </section>
+    </section>
+
+    <footer>
+      © <span id="year"></span> Iliomar Rodriguez Ramos · Built with GitHub Pages
+    </footer>
+  </main>
+
+  <script>
+    // Footer year
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Theme toggle (persists)
+    const root = document.documentElement;
+    const btn = document.getElementById("themeBtn");
+    const icon = document.getElementById("themeIcon");
+    const saved = localStorage.getItem("theme");
+    if (saved) root.setAttribute("data-theme", saved);
+
+    function updateIcon(){
+      const isLight = root.getAttribute("data-theme") === "light";
+      icon.textContent = isLight ? "☀️" : "🌙";
+    }
+    updateIcon();
+
+    btn.addEventListener("click", () => {
+      const current = root.getAttribute("data-theme");
+      const next = current === "light" ? "" : "light";
+      if (next) root.setAttribute("data-theme", next);
+      else root.removeAttribute("data-theme");
+      localStorage.setItem("theme", next || "");
+      updateIcon();
+    });
+
+    // Slideshow
+    const slides = Array.from(document.querySelectorAll(".slide-img"));
+    const capTitle = document.getElementById("capTitle");
+    const capSub = document.getElementById("capSub");
+    const dotsWrap = document.getElementById("dots");
+    const nextBtn = document.getElementById("nextBtn");
+    const prevBtn = document.getElementById("prevBtn");
+
+    let idx = 0;
+    let timer = null;
+    const INTERVAL_MS = 4500;
+
+    function setActive(i){
+      idx = (i + slides.length) % slides.length;
+      slides.forEach((s, k) => s.classList.toggle("active", k === idx));
+
+      const s = slides[idx];
+      capTitle.textContent = s.dataset.title || "Moment";
+      capSub.textContent = s.dataset.sub || "";
+
+      // dots
+      const dots = Array.from(dotsWrap.querySelectorAll(".dotx"));
+      dots.forEach((d, k) => d.classList.toggle("active", k === idx));
+    }
+
+    function next(){ setActive(idx + 1); }
+    function prev(){ setActive(idx - 1); }
+
+    function restartTimer(){
+      if (timer) clearInterval(timer);
+      timer = setInterval(next, INTERVAL_MS);
+    }
+
+    // Create dots
+    slides.forEach((_, k) => {
+      const d = document.createElement("button");
+      d.className = "dotx" + (k === 0 ? " active" : "");
+      d.type = "button";
+      d.setAttribute("aria-label", `Go to slide ${k+1}`);
+      d.addEventListener("click", () => {
+        setActive(k);
+        restartTimer();
+      });
+      dotsWrap.appendChild(d);
+    });
+
+    nextBtn.addEventListener("click", () => { next(); restartTimer(); });
+    prevBtn.addEventListener("click", () => { prev(); restartTimer(); });
+
+    // Pause on hover (nice touch)
+    const slideWrap = document.querySelector(".slide-wrap");
+    slideWrap.addEventListener("mouseenter", () => { if (timer) clearInterval(timer); });
+    slideWrap.addEventListener("mouseleave", restartTimer);
+
+    // Start
+    setActive(0);
+    restartTimer();
+  </script>
 </body>
 </html>
+

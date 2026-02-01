@@ -3,36 +3,168 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contact - Iliomar Rodriguez Ramos</title>
+  <title>Contact · Iliomar Rodriguez Ramos</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
-  <header>
-    <h1>Contact</h1>
-    <p>Let’s connect!</p>
+  <div class="grain"></div>
+
+  <!-- NAV -->
+  <header class="nav">
+    <div class="wrap nav-inner">
+      <div class="brand">
+        <div class="dot"></div>
+        <div>Iliomar Rodriguez Ramos</div>
+      </div>
+
+      <nav class="links" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="research.html">Projects</a>
+        <a href="outreach.html">Outreach</a>
+        <a href="cv.html">CV</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+
+      <button class="btn" id="themeBtn" title="Toggle theme">
+        <span id="themeIcon">🌙</span>
+        <span class="k">theme</span>
+      </button>
+    </div>
   </header>
 
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="research.html">Research</a>
-    <a href="cv.html">CV</a>
-    <a href="about.html">About</a>
-    <a href="contact.html">Contact</a>
-  </nav>
-
-  <div class="container">
-    <section>
-      <p>Feel free to reach out for collaborations, questions, or just to say hello.</p>
-      <ul>
-        <li><a href="iliomar.rodriguez@upr.edu">iliomar.rodriguez@upr.edu</a></li>
-        <li><a href="https://iliomar.github.io" target="_blank">GitHub</a></li>
-        <li><a href="https://www.linkedin.com/in/iliomar-rodriguez-ramos-64b94b210/" target="_blank">Linkedin</a></li>
-      </ul>
+  <main class="wrap">
+    <!-- PAGE HEADER -->
+    <section class="section fade-up">
+      <div class="tagline">Let’s get in touch</div>
+      <h1 style="margin-top:12px;">Contact</h1>
+      <p class="subtitle">
+        If you’d like to talk about research, collaborations, workshops, or just say hi,
+        feel free to reach out through any of the channels below.
+      </p>
     </section>
-  </div>
 
-  <footer>
-    <p>&copy; 2025 Iliomar Rodriguez Ramos. All rights reserved.</p>
-  </footer>
+    <!-- CONTACT GRID -->
+    <section class="section fade-up d2">
+      <h2><span class="bar"></span> Ways to reach me</h2>
+
+      <div class="grid-2">
+        <!-- LEFT: contact methods -->
+        <div class="list">
+          <div class="li">
+            <span class="tick"></span>
+            <div>
+              <strong>Email (preferred):</strong><br/>
+              <a href="mailto:iliomar.rodriguez@upr.edu"
+                 style="color:var(--mint); font-weight:800;">
+                iliomar.rodriguez@upr.edu
+              </a>
+            </div>
+          </div>
+
+          <div class="li">
+            <span class="tick"></span>
+            <div>
+              <strong>GitHub:</strong><br/>
+              <a href="https://github.com/iliomar"
+                 target="_blank" rel="noopener"
+                 style="color:var(--mint); font-weight:800;">
+                github.com/iliomar
+              </a>
+            </div>
+          </div>
+
+          <div class="li">
+            <span class="tick"></span>
+            <div>
+              <strong>LinkedIn:</strong><br/>
+              <a href="https://www.linkedin.com/"
+                 target="_blank" rel="noopener"
+                 style="color:var(--mint); font-weight:800;">
+                linkedin.com
+              </a>
+            </div>
+          </div>
+
+          <div class="li">
+            <span class="tick"></span>
+            <div>
+              <strong>ORCID:</strong><br/>
+              <a href="https://orcid.org/0000-0002-3764-1798"
+                 target="_blank" rel="noopener"
+                 style="color:var(--mint); font-weight:800;">
+                0000-0002-3764-1798
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT: note -->
+        <div class="card">
+          <div class="title">What you can contact me about</div>
+          <div class="meta">Always happy to talk</div>
+          <div class="desc">
+            <ul style="margin-top:8px; padding-left:18px; color:var(--muted);">
+              <li>Research collaborations or discussions</li>
+              <li>High Energy Physics, ML, or simulation topics</li>
+              <li>Workshops, outreach, or teaching opportunities</li>
+              <li>Graduate school / academic-related questions</li>
+            </ul>
+
+            <p style="margin-top:12px;">
+              I try to reply as soon as possible — especially to academic and outreach-related messages.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section fade-up d3">
+      <h2><span class="bar"></span> Quick actions</h2>
+      <div class="cta-row">
+        <a class="cta" href="mailto:iliomar.rodriguez@upr.edu">Send email →</a>
+        <a class="cta secondary" href="research.html">See projects</a>
+        <a class="cta secondary" href="about.html">About me</a>
+      </div>
+    </section>
+
+    <footer>
+      © <span id="year"></span> Iliomar Rodriguez Ramos · Built with GitHub Pages
+    </footer>
+  </main>
+
+  <script>
+    // Footer year
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Theme toggle
+    const root = document.documentElement;
+    const btn = document.getElementById("themeBtn");
+    const icon = document.getElementById("themeIcon");
+    const saved = localStorage.getItem("theme");
+    if (saved) root.setAttribute("data-theme", saved);
+
+    function updateIcon(){
+      const isLight = root.getAttribute("data-theme") === "light";
+      icon.textContent = isLight ? "☀️" : "🌙";
+    }
+    updateIcon();
+
+    btn.addEventListener("click", () => {
+      const current = root.getAttribute("data-theme");
+      const next = current === "light" ? "" : "light";
+      if (next) root.setAttribute("data-theme", next);
+      else root.removeAttribute("data-theme");
+      localStorage.setItem("theme", next || "");
+      updateIcon();
+    });
+  </script>
 </body>
 </html>

@@ -4,121 +4,190 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Iliomar Rodriguez Ramos</title>
-  <style>
-    :root {
-      --green: #14532d;
-      --dark: #1a1a1a;
-      --light: #f4f4f4;
-      --accent: #22c55e;
-    }
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: 'Segoe UI', sans-serif;
-    }
-    body {
-      background: var(--light);
-      color: var(--dark);
-      line-height: 1.6;
-      transition: all 0.3s ease;
-    }
-    header {
-      background: var(--green);
-      color: white;
-      padding: 1.5rem;
-      text-align: center;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-    }
-    nav {
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      background: var(--dark);
-      padding: 1rem 0;
-    }
-    nav a {
-      color: var(--light);
-      text-decoration: none;
-      font-weight: bold;
-      position: relative;
-    }
-    nav a::after {
-      content: '';
-      position: absolute;
-      bottom: -5px;
-      left: 0;
-      width: 0;
-      height: 2px;
-      background: var(--accent);
-      transition: width 0.3s;
-    }
-    nav a:hover::after {
-      width: 100%;
-    }
-    .container {
-      max-width: 900px;
-      margin: 2rem auto;
-      padding: 0 1rem;
-    }
-    section {
-      margin-bottom: 2rem;
-    }
-    h2 {
-      color: var(--green);
-      margin-bottom: 1rem;
-    }
-    img.profile {
-      width: 150px;
-      border-radius: 50%;
-      margin-bottom: 1rem;
-      border: 3px solid var(--green);
-    }
-    footer {
-      text-align: center;
-      padding: 1rem;
-      background: var(--dark);
-      color: white;
-    }
-    a.button {
-      display: inline-block;
-      padding: 0.6rem 1.2rem;
-      background: var(--accent);
-      color: white;
-      text-decoration: none;
-      border-radius: 8px;
-      margin-top: 1rem;
-      transition: background 0.3s;
-    }
-    a.button:hover {
-      background: #16a34a;
-    }
-  </style>
+
+  <!-- Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Global stylesheet -->
+  <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
-  <header>
-    <h1>Iliomar Rodriguez Ramos</h1>
-    <p>Graduate Student · Physicist · Explorer of the Universe</p>
+  <div class="grain"></div>
+
+  <!-- NAV -->
+  <header class="nav">
+    <div class="wrap nav-inner">
+      <div class="brand">
+        <div class="dot"></div>
+        <div>Iliomar Rodriguez Ramos</div>
+      </div>
+
+      <nav class="links" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="research.html">Projects</a>
+        <a href="outreach.html">Outreach</a>
+        <a href="cv.html">CV</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+
+      <button class="btn" id="themeBtn" title="Toggle theme">
+        <span id="themeIcon">🌙</span>
+        <span class="k">theme</span>
+      </button>
+    </div>
   </header>
 
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="research.html">Research</a>
-    <a href="cv.html">CV</a>
-    <a href="about.html">About</a>
-    <a href="contact.html">Contact</a>
-  </nav>
+  <main class="wrap">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-grid">
+        <!-- LEFT: image + identity + icons -->
+        <aside class="panel hero-left fade-up">
+          <img class="avatar" src="iliomar.jpg" alt="Portrait of Iliomar Rodriguez Ramos">
 
-  <div class="container">
-    <section>
-      <h2>Welcome</h2>
-      <img src="iliomar.jpg" alt="Profile photo" class="profile">
-      <p>Hello! I'm Iliomar, a passionate physicist from Puerto Rico currently pursuing my Master's at the University of Puerto Rico at Mayagüez. I work on particle physics research with the CMS experiment at Fermilab, exploring the deep structure of matter. I love science, nature, running, playing guitar, and learning languages like Russian.</p>
+          <div class="identity">
+            <div class="name">Iliomar Rodriguez Ramos</div>
+            <div class="role">M.S. Physics · High Energy Physics · CMS</div>
+          </div>
+
+          <!-- Social icons row -->
+          <div class="social" aria-label="Social links">
+            <!-- GitHub (replace href if you want a specific profile/repo link) -->
+            <a class="icon-link" href="https://github.com/iliomar" target="_blank" rel="noopener">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 .5a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2.2c-3.3.7-4-1.6-4-1.6-.5-1.4-1.2-1.8-1.2-1.8-1-.7.1-.7.1-.7 1.1.1 1.7 1.2 1.7 1.2 1 .1 1.6-.7 1.9-1 .1-.7.4-1.1.7-1.3-2.6-.3-5.3-1.3-5.3-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.4 11.4 0 0 1 6 0C17.8 4.9 18.8 5.2 18.8 5.2c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.9 1.2 3.2 0 4.6-2.7 5.6-5.3 5.9.4.4.8 1.1.8 2.2v3.2c0 .3.2.7.8.6A12 12 0 0 0 12 .5z"/>
+              </svg>
+              GitHub
+            </a>
+
+            <!-- LinkedIn (placeholder: replace with your real URL) -->
+            <a class="icon-link" href="https://www.linkedin.com/" target="_blank" rel="noopener">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M4.98 3.5A2.5 2.5 0 1 1 5 8.5a2.5 2.5 0 0 1-.02-5zM3 9h4v12H3V9zm7 0h3.8v1.7h.1c.5-.9 1.8-2 3.7-2 4 0 4.7 2.6 4.7 6v6.3h-4v-5.6c0-1.3 0-3-1.9-3s-2.2 1.4-2.2 2.9V21h-4V9z"/>
+              </svg>
+              LinkedIn
+            </a>
+
+            <!-- ORCID -->
+            <a class="icon-link" href="https://orcid.org/0000-0002-3764-1798" target="_blank" rel="noopener">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M7.2 6.3h-2V18h2V6.3zm-1-3C5 3.3 4.1 4.2 4.1 5.3S5 7.3 6.2 7.3 8.2 6.4 8.2 5.3 7.3 3.3 6.2 3.3zM10 6.3V18h4.6c4.2 0 6.3-2.7 6.3-5.9 0-3.6-2.5-5.8-6.2-5.8H10zm2 1.8h2.5c2.6 0 4.4 1.4 4.4 4 0 2.4-1.6 4-4.5 4H12V8.1z"/>
+              </svg>
+              ORCID
+            </a>
+
+            <!-- Email -->
+            <a class="icon-link" href="mailto:iliomar.rodriguez@upr.edu">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5L4 8V6l8 5 8-5v2z"/>
+              </svg>
+              Email
+            </a>
+          </div>
+        </aside>
+
+        <!-- RIGHT: intro -->
+        <section class="panel hero-right fade-up d2">
+          <div class="tagline">
+            High Energy Physics · CMS
+            <span>· ML + Simulation</span>
+          </div>
+
+          <h1>Physics, ML, and clean pipelines — with a green aesthetic 🌿</h1>
+
+          <p class="subtitle">
+            I’m a Master’s student in Physics at the University of Puerto Rico at Mayagüez, working on
+            High Energy Physics with the CMS Experiment. I like building robust, reproducible workflows
+            and making results easy to trust and explain.
+          </p>
+
+          <div class="cta-row">
+            <a class="cta" href="research.html">See projects →</a>
+            <a class="cta secondary" href="cv.html">Open CV</a>
+            <a class="cta secondary" href="outreach.html">Outreach</a>
+            <a class="cta secondary" href="contact.html">Contact</a>
+          </div>
+        </section>
+      </div>
     </section>
-  </div>
 
-  <footer>
-    <p>&copy; 2025 Iliomar Rodriguez Ramos. All rights reserved.</p>
-  </footer>
+    <!-- HOME CONTENT -->
+    <section class="section fade-up d3">
+      <h2><span class="bar"></span> Quick introduction</h2>
+
+      <div class="grid-2">
+        <div class="list">
+          <div class="li">
+            <span class="tick"></span>
+            <div>
+              <strong>What I do:</strong> I work on analysis + ML tooling for High Energy Physics (CMS),
+              focusing on model robustness, clear evaluation, and reproducible code.
+            </div>
+          </div>
+
+          <div class="li">
+            <span class="tick"></span>
+            <div>
+              <strong>Interests:</strong> end-to-end approaches (simulation → reconstruction → analysis),
+              trigger efficiency modeling, anomaly detection & monitoring, and ML methods that behave in the real world.
+            </div>
+          </div>
+
+          <div class="li">
+            <span class="tick"></span>
+            <div>
+              <strong>Fun fact:</strong> I grew up in a small town in Puerto Rico with roosters in the morning and
+              food from our own soil — my favorite fruit is <strong>pomarrosa</strong>.
+              (More personal stuff is in <a href="about.html" style="color:var(--mint); font-weight:800;">About</a>.)
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="title">Currently</div>
+          <div class="meta">What I’m focused on this semester</div>
+          <div class="desc">
+            Building and polishing my project pipelines (datasets, training, evaluation),
+            and organizing results + writeups for my thesis proposal and PhD applications.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      © <span id="year"></span> Iliomar Rodriguez Ramos · Built with GitHub Pages · Green theme forever 🌿
+    </footer>
+  </main>
+
+  <script>
+    // Footer year
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Theme toggle (persists)
+    const root = document.documentElement;
+    const btn = document.getElementById("themeBtn");
+    const icon = document.getElementById("themeIcon");
+    const saved = localStorage.getItem("theme");
+    if (saved) root.setAttribute("data-theme", saved);
+
+    function updateIcon(){
+      const isLight = root.getAttribute("data-theme") === "light";
+      icon.textContent = isLight ? "☀️" : "🌙";
+    }
+    updateIcon();
+
+    btn.addEventListener("click", () => {
+      const current = root.getAttribute("data-theme");
+      const next = current === "light" ? "" : "light";
+      if (next) root.setAttribute("data-theme", next);
+      else root.removeAttribute("data-theme");
+      localStorage.setItem("theme", next || "");
+      updateIcon();
+    });
+  </script>
 </body>
 </html>

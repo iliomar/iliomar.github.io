@@ -14,7 +14,18 @@
     /* Small page-specific layout helpers (kept minimal) */
     .page-head{
       padding: 34px 0 6px;
+      text-align: center;
     }
+
+    .page-head .tagline{
+      margin-inline: auto;
+    }
+
+    .page-head .page-sub{
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
     .page-title{
       font-size: clamp(30px, 3.2vw, 42px);
       letter-spacing: -0.6px;
@@ -167,7 +178,7 @@
           <h2><span class="bar"></span> Pileup Mitigation with Flow Matching</h2>
 
           <p class="note" style="margin-top:-6px;">
-            Expand AI Group
+            Expand AI Research Group - University of Puerto Rico at Mayagüez
           </p>
 
           <p class="page-sub" style="margin-top:10px;">
@@ -204,14 +215,10 @@
             <span class="tag">Pileup Mitigation</span>
             <span class="tag">Flow Matching / CFM</span>
             <span class="tag">Fast Simulation</span>
-            <span class="tag">PUMML</span>
-            <span class="tag">PUPPI</span>
           </div>
 
           <div class="project-actions">
             <a class="mini-cta" href="https://github.com/UPRM-HEP/FlowSim-exploration.git" target="_blank" rel="noopener">GH Repository</a>
-            <a class="mini-cta" href="https://arxiv.org/abs/2402.13684" target="_blank" rel="noopener">FlowSim Paper</a>
-            <a class="mini-cta" href="https://arxiv.org/abs/1707.08600" target="_blank" rel="noopener">PUMML Paper</a>
           </div>
         </div>
 
@@ -233,40 +240,107 @@
               with FlowSim-based mitigation to quantify performance and failure modes.
             </div>
           </div>
+
+          <div class="kv">
+            <div class="k">Who is involved?</div>
+            <div class="s">
+              Guided by
+              <a href="https://chattopadhyaya.github.io/" target="_blank" rel="noopener" style="color:var(--mint); font-weight:700;">
+                Dr. Arghya Chattopadhyay
+              </a>.
+              Team members include
+              <a href="https://www.linkedin.com/in/mateo-lisondo/" target="_blank" rel="noopener" style="color:var(--mint); font-weight:700;">
+                Mateo E. Lisondo di Tada
+              </a>,
+              Hugo Torres, and Iliomar Rodriguez Ramos.
+            </div>
+          </div>
+
+
         </div>
       </article>
 
       <!-- 2) Trigger Efficiency -->
       <article class="section project">
         <div>
-          <h2><span class="bar"></span> Trigger Efficiency Modeling for CMS Run 3 Analysis</h2>
-          <h2>Emerging Jets Analysis Group</h2>
-          <p class="page-sub" style="margin-top:6px;">
-            Modeling trigger turn-on behavior with neural networks to improve efficiency estimates and
-            systematic understanding. Focused on robust training, careful validation, and uncertainty-minded workflows.
+          <h2><span class="bar"></span> Modeling CMS Run 3 Trigger Efficiency for Emerging Jets</h2>
+
+          <p class="note" style="margin-top:-6px;">
+            Emerging Jets Analysis Research Group - CMS Collaboration
+          </p>
+
+          <p class="page-sub" style="margin-top:10px;">
+            This project focuses on modeling the trigger efficiency for the CMS Run 3 Emerging Jets
+            analysis. Emerging jets are a long-lived-particle signature motivated by dark-sector models,
+            where dark hadrons decay back to Standard Model particles at displaced locations inside the
+            detector, producing jets with unusual track and vertex structure. This signature was originally
+            proposed in the
+            <a href="https://arxiv.org/abs/1502.05409" target="_blank" rel="noopener" style="color:var(--mint); font-weight:700;">
+              Emerging Jets paper
+            </a>.
+          </p>
+
+          <p class="page-sub" style="margin-top:10px;">
+            In earlier Emerging Jets strategies, the trigger efficiency could often be approximated using
+            global event variables such as <em>H<sub>T</sub></em>. For Run 3, the analysis uses a broader
+            LLP trigger program instead of relying only on standard <em>H<sub>T</sub></em>-based triggers.
+            The CMS Run 3 detector and trigger upgrades are described in the
+            <a href="https://arxiv.org/abs/2309.05466" target="_blank" rel="noopener" style="color:var(--mint); font-weight:700;">
+              CMS Run 3 detector paper
+            </a>,
+            while the dedicated Run 3 long-lived-particle trigger strategy is described in the
+            <a href="https://arxiv.org/abs/2601.17544" target="_blank" rel="noopener" style="color:var(--mint); font-weight:700;">
+              CMS LLP trigger program paper
+            </a>.
+          </p>
+
+          <p class="page-sub" style="margin-top:10px;">
+            Because each trigger responds to different reconstructed features, the combined trigger
+            efficiency becomes a high-dimensional function of correlated observables. The goal of this
+            work is to use neural networks to model that efficiency in a way that is accurate, validated,
+            and useful for the final physics analysis.
           </p>
 
           <div class="tags">
             <span class="tag">CMS Experiment</span>
-            <span class="tag">Triggers</span>
+            <span class="tag">Emerging Jets</span>
+            <span class="tag">LLP Triggers</span>
+            <span class="tag">Run 3</span>
+            <span class="tag">Trigger Efficiency</span>
           </div>
 
           <div class="project-actions">
             <a class="mini-cta" href="https://github.com/iliomar/trigger_efficiency.git" target="_blank" rel="noopener">GH Repository</a>
-            <a class="mini-cta" href="#" target="_blank" rel="noopener">Slides / updates</a>
           </div>
         </div>
 
         <div class="meta-box">
           <div class="kv">
             <div class="k">Goal</div>
-            <div class="v">Stable, physics-ready efficiency model</div>
-            <div class="s">Generalizes well and tells a clear story in plots.</div>
+            <div class="v">Build a physics-ready Run 3 trigger-efficiency model</div>
+            <div class="s">
+              Learn the combined efficiency of multiple LLP-sensitive triggers as a function of
+              reconstructed event and jet-level observables.
+            </div>
           </div>
+
+          <div class="kv">
+            <div class="k">Why neural networks?</div>
+            <div class="v">Run 3 efficiency is high-dimensional</div>
+            <div class="s">
+              Unlike a simple one-dimensional <em>H<sub>T</sub></em> turn-on curve, the Run 3 LLP trigger
+              strategy depends on several correlated displaced-object, jet, calorimeter, and muon-system
+              features.
+            </div>
+          </div>
+
           <div class="kv">
             <div class="k">What I focus on</div>
-            <div class="v">Overtraining prevention + robust eval</div>
-            <div class="s">More events, better splits, sanity checks, uncertainty estimates.</div>
+            <div class="v">Training, validation, and uncertainty-aware evaluation</div>
+            <div class="s">
+              I work on robust model training, overtraining checks, efficiency validation plots,
+              comparison across signal regions, and strategies for estimating modeling uncertainties.
+            </div>
           </div>
         </div>
       </article>
@@ -274,36 +348,71 @@
       <!-- 3) ML4DQM -->
       <article class="section project">
         <div>
-          <h2><span class="bar"></span> Anomaly Detection in DQM</h2>
-          <h2>ML4DQM Group</h2>
-          <p class="page-sub" style="margin-top:6px;">
-            Using ML methods to help detect anomalies in DQM histograms and support operations.
-            Working with matrix factorization / anomaly detection ideas and validating behavior on real monitoring outputs.
+          <h2><span class="bar"></span> NMF-Based Anomaly Detection for CMS Tracking Monitoring Elements</h2>
+
+          <p class="note" style="margin-top:-6px;">
+            ML4DQM Group
+          </p>
+
+          <p class="page-sub" style="margin-top:10px;">
+            This project applies Non-negative Matrix Factorization (NMF) to CMS Tracking DQM
+            monitoring elements in order to identify anomalous behavior in detector and reconstruction
+            outputs. The focus is on tracking occupancy histograms, especially two-dimensional
+            monitoring elements such as track distributions in the <em>&eta;&ndash;&phi;</em> plane.
+          </p>
+
+          <p class="page-sub" style="margin-top:10px;">
+            The method uses good-reference runs to learn a compact set of non-negative components
+            that describe typical tracking behavior. Evaluation runs are then reconstructed using this
+            learned basis, and anomalies are identified through reconstruction differences, residual
+            patterns, and localized structures that are not well described by the reference model.
+          </p>
+
+          <p class="page-sub" style="margin-top:10px;">
+            My work includes preparing DQMIO inputs, applying tracking DCS-on filters, normalizing
+            histograms per lumisection, training the NMF model on reference runs, evaluating known bad
+            runs, and testing the response of the method by injecting artificial holes or localized defects
+            into occupancy maps.
           </p>
 
           <div class="tags">
             <span class="tag">CMS DQM</span>
-            <span class="tag">Anomaly Detection</span>
+            <span class="tag">Tracking</span>
             <span class="tag">NMF</span>
-            <span class="tag">2D Histograms</span>
+            <span class="tag">Anomaly Detection</span>
           </div>
 
           <div class="project-actions">
             <a class="mini-cta" href="https://github.com/iliomar/ML4DQM_Tracking.git" target="_blank" rel="noopener">GH Repository</a>
-            <a class="mini-cta" href="#" target="_blank" rel="noopener">Summary</a>
           </div>
         </div>
 
         <div class="meta-box">
           <div class="kv">
             <div class="k">Goal</div>
-            <div class="v">Reliable anomaly signals</div>
-            <div class="s">Useful, interpretable alerts that don’t spam.</div>
+            <div class="v">Detect anomalous tracking behavior with NMF</div>
+            <div class="s">
+              Learn typical tracking occupancy patterns from good runs and use reconstruction residuals
+              to flag unusual detector or reconstruction behavior.
+            </div>
           </div>
+
           <div class="kv">
-            <div class="k">What I’m building</div>
-            <div class="v">Evaluation + visualization</div>
-            <div class="s">So decisions are backed by clear evidence.</div>
+            <div class="k">What I focus on</div>
+            <div class="v">Tracking occupancy histograms per lumisection</div>
+            <div class="s">
+              I process DQMIO monitoring elements, apply DCS-on selections, normalize each lumisection,
+              and evaluate how well NMF reconstructs good and problematic runs.
+            </div>
+          </div>
+
+          <div class="kv">
+            <div class="k">Validation strategy</div>
+            <div class="v">Known bad runs and injected defects</div>
+            <div class="s">
+              I test the method on bad runs and controlled artificial anomalies, such as injected holes,
+              to study whether the residual maps highlight physically meaningful problem regions.
+            </div>
           </div>
         </div>
       </article>

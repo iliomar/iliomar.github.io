@@ -134,7 +134,7 @@
 
       <nav class="links" aria-label="Primary">
         <a href="index.html">Home</a>
-        <a href="research.html">Projects</a>
+        <a href="research.html">Research Projects</a>
         <a href="outreach.html">Outreach</a>
         <a href="cv.html">CV</a>
         <a href="about.html">About</a>
@@ -151,10 +151,9 @@
   <main class="wrap">
     <!-- Header -->
     <section class="page-head fade-up">
-      <div class="tagline">Selected work <span>· research + engineering</span></div>
-      <h1 class="page-title">Projects</h1>
+      <h1 class="page-title">Research Projects</h1>
       <p class="page-sub">
-        Here are the three main tracks I’m working on right now. Each one is a blend of physics goals,
+        Here is a summary of the three main research projects I’m working on right now. Each one is a blend of physics goals,
         ML methods, and practical software work to make pipelines reliable and reproducible.
       </p>
     </section>
@@ -165,36 +164,74 @@
       <!-- 1) Expand AI / End-to-End -->
       <article class="section project">
         <div>
-          <h2><span class="bar"></span> Expand AI · End-to-End Simulation (FlowSim/CFM)</h2>
-          <p class="page-sub" style="margin-top:6px;">
-            Exploring end-to-end approaches that connect generation → detector response → reconstruction,
-            with the goal of validating baselines and identifying research directions (e.g., unfolding-style studies,
-            physics-informed constraints, fast simulation ideas).
+          <h2><span class="bar"></span> Pileup Mitigation with Flow Matching</h2>
+
+          <p class="note" style="margin-top:-6px;">
+            Expand AI Group
+          </p>
+
+          <p class="page-sub" style="margin-top:10px;">
+            This project combines two ideas: machine-learning-based pileup mitigation and
+            flow-based fast simulation. Pileup refers to additional unwanted proton-proton
+            collisions that occur in the same beam crossing as the hard-scattering event of
+            interest. To address this, we study pileup-cleaning methods such as
+            <a href="https://arxiv.org/abs/1707.08600" target="_blank" rel="noopener" style="color:var(--mint); font-weight:700;">
+              PUMML
+            </a>,
+            which uses convolutional neural networks to recover the leading-vertex neutral
+            energy inside jets.
+          </p>
+
+          <p class="page-sub" style="margin-top:10px;">
+            At the same time, we explore
+            <a href="https://arxiv.org/abs/2402.13684" target="_blank" rel="noopener" style="color:var(--mint); font-weight:700;">
+              FlowSim
+            </a>,
+            an end-to-end fast-simulation approach based on Flow Matching and Continuous
+            Normalizing Flows. Instead of following the full conventional simulation chain —
+            event generation, GEANT4-based detector simulation, digitization, reconstruction,
+            and final analysis ntuples — the goal is to learn a direct mapping from
+            generator-level information to realistic analysis-level observables.
+          </p>
+
+          <p class="page-sub" style="margin-top:10px;">
+            Our direction is to make this end-to-end simulation more realistic by including
+            pileup in the generated events and studying how well different mitigation
+            strategies recover clean physics observables.
           </p>
 
           <div class="tags">
-            <span class="tag">End-to-End</span>
+            <span class="tag">Pileup Mitigation</span>
             <span class="tag">Flow Matching / CFM</span>
-            <span class="tag">Simulation</span>
-            <span class="tag">Validation</span>
+            <span class="tag">Fast Simulation</span>
+            <span class="tag">PUMML</span>
+            <span class="tag">PUPPI</span>
           </div>
 
           <div class="project-actions">
             <a class="mini-cta" href="https://github.com/UPRM-HEP/FlowSim-exploration.git" target="_blank" rel="noopener">GH Repository</a>
-            <!--<a class="mini-cta" href="#" target="_blank" rel="noopener">Notes / writeup</a>-->
+            <a class="mini-cta" href="https://arxiv.org/abs/2402.13684" target="_blank" rel="noopener">FlowSim Paper</a>
+            <a class="mini-cta" href="https://arxiv.org/abs/1707.08600" target="_blank" rel="noopener">PUMML Paper</a>
           </div>
         </div>
 
         <div class="meta-box">
           <div class="kv">
             <div class="k">Goal</div>
-            <div class="v">Understand + validate baseline behavior</div>
-            <div class="s">Reproduce key plots, identify failure modes, propose extensions.</div>
+            <div class="v">Build a pileup-aware flow-based simulation pipeline</div>
+            <div class="s">
+              Generate realistic analysis-level observables while studying how pileup affects
+              jet structure and event-level physics distributions.
+            </div>
           </div>
+
           <div class="kv">
-            <div class="k">What I’m building</div>
-            <div class="v">Clean experiments + documentation</div>
-            <div class="s">So results are easy to rerun and explain.</div>
+            <div class="k">What I Focus On</div>
+            <div class="v">Compare pileup mitigation strategies</div>
+            <div class="s">
+              Validate observables with no pileup, with pileup, with PUPPI, with PUMML, and
+              with FlowSim-based mitigation to quantify performance and failure modes.
+            </div>
           </div>
         </div>
       </article>
@@ -202,17 +239,16 @@
       <!-- 2) Trigger Efficiency -->
       <article class="section project">
         <div>
-          <h2><span class="bar"></span> Trigger Efficiency Modeling for Run 3 Analysis</h2>
+          <h2><span class="bar"></span> Trigger Efficiency Modeling for CMS Run 3 Analysis</h2>
+          <h2>Emerging Jets Analysis Group</h2>
           <p class="page-sub" style="margin-top:6px;">
             Modeling trigger turn-on behavior with neural networks to improve efficiency estimates and
             systematic understanding. Focused on robust training, careful validation, and uncertainty-minded workflows.
           </p>
 
           <div class="tags">
-            <span class="tag">CMS</span>
+            <span class="tag">CMS Experiment</span>
             <span class="tag">Triggers</span>
-            <span class="tag">MLP / Residual MLP</span>
-            <span class="tag">Uncertainties</span>
           </div>
 
           <div class="project-actions">
@@ -238,7 +274,8 @@
       <!-- 3) ML4DQM -->
       <article class="section project">
         <div>
-          <h2><span class="bar"></span> ML4DQM · Anomaly Detection in DQM</h2>
+          <h2><span class="bar"></span> Anomaly Detection in DQM</h2>
+          <h2>ML4DQM Group</h2>
           <p class="page-sub" style="margin-top:6px;">
             Using ML methods to help detect anomalies in DQM histograms and support operations.
             Working with matrix factorization / anomaly detection ideas and validating behavior on real monitoring outputs.

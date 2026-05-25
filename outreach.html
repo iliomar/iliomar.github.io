@@ -97,6 +97,81 @@
       color: var(--muted);
     }
 
+    /* Outreach photo gallery */
+    .outreach-gallery{
+      margin-top: 18px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+    }
+
+    .outreach-gallery .gallery-head{
+      display:flex;
+      justify-content:space-between;
+      align-items:baseline;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-bottom: 12px;
+    }
+
+    .outreach-gallery .gallery-title{
+      font-weight: 900;
+      letter-spacing: -0.2px;
+    }
+
+    .outreach-gallery .gallery-note{
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .photo-grid{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+
+    .photo-card{
+      position:relative;
+      overflow:hidden;
+      border-radius: 16px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.05);
+      box-shadow: var(--shadow2);
+    }
+
+    .photo-card img{
+      width:100%;
+      height:100%;
+      display:block;
+      object-fit:cover;
+      aspect-ratio: 4 / 3;
+      opacity:.92;
+      transition: transform .25s ease, opacity .25s ease;
+    }
+
+    .photo-card:hover img{
+      transform: scale(1.04);
+      opacity:1;
+    }
+
+    .photo-caption{
+      position:absolute;
+      left:0;
+      right:0;
+      bottom:0;
+      padding: 18px 10px 10px;
+      color: var(--text);
+      font-size: 12px;
+      font-weight: 800;
+      background: linear-gradient(180deg, transparent, rgba(0,0,0,.72));
+    }
+
+    @media (max-width: 700px){
+      .photo-grid{
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
     .side-card .desc{
       color: var(--muted);
       margin-top: 10px;
@@ -154,35 +229,28 @@
       <h1 class="page-title">Outreach</h1>
       <p class="page-sub">
         I enjoy teaching and science communication — especially workshops that help people feel confident
-        using tools that scientists actually use (terminal, Python, data workflows). Below are a few things
-        I’ve done so far, and I plan to keep growing this side of my work.
+        using tools that scientists actually use, such as the terminal, Python, and data workflows.
+        Below are a few things I’ve done so far, and I plan to keep growing this side of my work.
       </p>
-
-      <div class="badge-row">
-        <span class="badge">Workshops</span>
-        <span class="badge">Mentoring</span>
-        <span class="badge">Science demos</span>
-        <span class="badge">Community</span>
-      </div>
     </section>
 
     <section class="outreach-grid fade-up d2">
       <!-- LEFT: events -->
       <section class="section">
-        <h2><span class="bar"></span> Highlights</h2>
+        <h2><span class="bar"></span> Trainings & Tutorials</h2>
 
         <div class="timeline">
           <div class="event">
             <div class="top">
               <div class="title">Bash / Shell Workshop</div>
-              <div class="when">Workshop</div>
+              <div class="when">PURSUE Internship at Fermilab</div>
             </div>
             <div class="desc">
-              A hands-on introduction to the terminal and practical command-line skills (navigation, scripts, and
-              workflows useful for research and computing).
+              A hands-on introduction to the terminal and practical command-line skills, including
+              navigation, scripts, and workflows useful for research computing.
             </div>
             <ul class="bul">
-              <li>Core commands + scripting mindset</li>
+              <li>Core commands and scripting mindset</li>
               <li>Reproducible workflows for research</li>
               <li>Focus on “learn by doing” examples</li>
             </ul>
@@ -190,34 +258,59 @@
 
           <div class="event">
             <div class="top">
-              <div class="title">Python Workshop (High School Students & Teachers)</div>
-              <div class="when">Workshop</div>
+              <div class="title">Python Workshop</div>
+              <div class="when">IRIS-HEP Coding Camp at Puerto Rico</div>
             </div>
             <div class="desc">
-              Intro Python sessions designed for beginners, focused on building confidence and curiosity.
-              I aim to make coding feel friendly, practical, and connected to real problems.
+              Introductory Python sessions designed for beginners, focused on building confidence,
+              curiosity, and practical programming skills.
             </div>
             <ul class="bul">
-              <li>Basics: variables, loops, functions, plotting</li>
-              <li>Small projects + interactive exercises</li>
+              <li>Basics: variables, loops, functions, and plotting</li>
+              <li>Small projects and interactive exercises</li>
               <li>Supportive environment: “no shame questions”</li>
             </ul>
           </div>
 
           <div class="event">
             <div class="top">
-              <div class="title"> Introduction to Machine Learning</div>
-              <div class="when">Undergrad</div>
+              <div class="title">Introduction to Machine Learning</div>
+              <div class="when">IRIS-HEP Coding Camp at Puerto Rico</div>
             </div>
             <div class="desc">
-              Still a work in progress! Preparing a beginner-friendly intro to ML concepts
-              and practical Python tools for undergrads interested in data science and ML.
+              A beginner-friendly introduction to machine-learning concepts and practical Python tools
+              for undergraduates interested in data science, physics, and ML.
             </div>
             <ul class="bul">
-              <li>In process</li>
-              <li>In process</li>
-              <li>In process</li>
+              <li>Basic ML ideas and vocabulary</li>
+              <li>Examples with Python-based tools</li>
+              <li>Connection to real scientific workflows</li>
             </ul>
+          </div>
+        </div>
+
+        <!-- Outreach photo gallery -->
+        <div class="outreach-gallery">
+          <div class="gallery-head">
+            <div class="gallery-title">Outreach moments</div>
+            <div class="gallery-note">Workshops · teaching · community</div>
+          </div>
+
+          <div class="photo-grid">
+            <figure class="photo-card">
+              <img src="images/pythonworkshop.JPG" alt="Me leading a Python workshop">
+              <figcaption class="photo-caption">Python Workshop for High School Teachers</figcaption>
+            </figure>
+
+            <figure class="photo-card">
+              <img src="images/python_WS2.png" alt="Participants working during a coding camp session">
+              <figcaption class="photo-caption">IRIS-HEP Coding Camp for High School Teachers</figcaption>
+            </figure>
+
+            <figure class="photo-card">
+              <img src="images/ML_ws.JPG" alt="Me presenting machine-learning material">
+              <figcaption class="photo-caption">Introduction to ML</figcaption>
+            </figure>
           </div>
         </div>
       </section>
@@ -226,22 +319,11 @@
       <aside class="section side-card">
         <h2><span class="bar"></span> Why I do outreach</h2>
         <p class="desc">
-          I genuinely enjoy making technical tools and science concepts feel approachable.
+          Although I consider myself shy on public speaking, I genuinely enjoy making technical tools and science concepts feel approachable.
           A big part of my motivation is giving people the “I can do this” moment — because that feeling
           changes how someone sees themselves.
         </p>
 
-        <div class="callout">
-          <strong>If you’d like me to give a workshop:</strong><br/>
-          I’m open to future sessions in Python, basic ML concepts, and research computing basics.
-          Reach out through the <a href="contact.html" style="color:var(--mint); font-weight:900;">Contact</a> page.
-        </div>
-
-        <div class="mini-actions">
-          <a class="cta" href="contact.html">Invite me →</a>
-          <a class="cta secondary" href="research.html">See projects</a>
-          <a class="cta secondary" href="about.html">More about me</a>
-        </div>
 
         <p class="desc" style="margin-top:12px; font-size:13px;">
           I’m always looking for new ways to contribute and grow my outreach skills.

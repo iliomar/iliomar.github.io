@@ -10,6 +10,155 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="style.css" />
+
+  <style>
+    .cv-head{
+      padding: 34px 0 6px;
+    }
+
+    .cv-title{
+      font-size: clamp(34px, 4.2vw, 54px);
+      line-height: 1.05;
+      margin-top: 14px;
+      letter-spacing: -0.8px;
+    }
+
+    .cv-sub{
+      margin-top: 14px;
+      color: var(--muted);
+      max-width: 78ch;
+    }
+
+    .cv-actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+      margin-top: 22px;
+    }
+
+    .cv-grid{
+      margin-top: 18px;
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap:18px;
+      align-items:start;
+    }
+
+    @media (max-width: 900px){
+      .cv-grid{
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .cv-block{
+      display:flex;
+      flex-direction:column;
+      gap:14px;
+    }
+
+    .cv-item{
+      padding: 16px;
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.05);
+    }
+
+    .cv-item .top{
+      display:flex;
+      justify-content:space-between;
+      align-items:baseline;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+
+    .cv-item .title{
+      font-weight: 900;
+      letter-spacing: -0.2px;
+      color: var(--text);
+    }
+
+    .cv-item .where{
+      margin-top: 4px;
+      color: var(--muted);
+      font-weight: 700;
+      font-size: 13px;
+    }
+
+    .cv-item .date{
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .3px;
+      text-transform: uppercase;
+    }
+
+    .cv-item .desc{
+      margin-top: 10px;
+      color: var(--muted);
+    }
+
+    .cv-item ul{
+      margin-top: 10px;
+      padding-left: 18px;
+      color: var(--muted);
+    }
+
+    .cv-item li{
+      margin-top: 6px;
+    }
+
+    .skill-tags{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top: 10px;
+    }
+
+    .skill-tag{
+      font-size: 12px;
+      padding: 7px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.05);
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .compact-list{
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      margin-top: 10px;
+    }
+
+    .compact-row{
+      padding: 12px;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.04);
+    }
+
+    .compact-row .name{
+      font-weight: 900;
+      color: var(--text);
+    }
+
+    .compact-row .meta{
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 700;
+      margin-top: 4px;
+    }
+
+    .publication{
+      line-height: 1.65;
+    }
+
+    .muted-link{
+      color: var(--mint);
+      font-weight: 900;
+    }
+  </style>
 </head>
 
 <body>
@@ -41,45 +190,345 @@
 
   <main class="wrap">
     <!-- PAGE HEADER -->
-    <section class="section fade-up">
+    <section class="cv-head fade-up">
       <div class="tagline">Curriculum Vitae</div>
-      <h1 style="margin-top:12px;">CV</h1>
-      <p class="subtitle">
-        This page will host my full academic CV. I’m currently updating and reorganizing it to reflect
-        my most recent projects, coursework, and research activities.
+      <h1 class="cv-title">CV</h1>
+      <p class="cv-sub">
+        I am a physics graduate student at the University of Puerto Rico at Mayagüez working on
+        experimental particle physics, machine learning for CMS analyses, trigger-efficiency modeling,
+        data quality monitoring, and end-to-end simulation studies.
       </p>
-    </section>
 
-    <!-- UPDATE NOTICE -->
-    <section class="section fade-up d2">
-      <h2><span class="bar"></span> Status</h2>
-      <div class="card">
-        <div class="title">CV in progress</div>
-        <div class="meta">Last updated soon™</div>
-        <div class="desc">
-          I’m actively updating my CV to include recent work on:
-          <ul style="margin-top:10px; padding-left:18px; color:var(--muted);">
-            <li>High Energy Physics research with the CMS Experiment</li>
-            <li>Machine learning projects (trigger efficiency, ML4DQM, end-to-end simulation)</li>
-            <li>Outreach and teaching activities</li>
-          </ul>
-          <p style="margin-top:10px;">
-            Please check back soon, or feel free to <a href="contact.html" style="color:var(--mint); font-weight:800;">contact me</a>
-            if you need a current version.
-          </p>
-        </div>
+      <div class="cv-actions">
+        <a class="cta" href="CV_Iliomar_Rodriguez_Ramos.pdf" target="_blank" rel="noopener">
+          View PDF CV →
+        </a>
+
+        <a class="cta secondary" href="#" onclick="window.print(); return false;">
+          Print / Save as PDF
+        </a>
+
+        <a class="cta secondary" href="contact.html">
+          Contact me
+        </a>
       </div>
     </section>
 
-    
-        <div class="card">
-          <div class="title">PDF version</div>
-          <div class="meta">Coming soon</div>
-          <div class="desc">
-            A downloadable PDF version of my CV will be available here once the update is complete.
+    <!-- EDUCATION + SKILLS -->
+    <section class="cv-grid fade-up d2">
+      <section class="section">
+        <h2><span class="bar"></span> Education</h2>
+
+        <div class="cv-block">
+          <div class="cv-item">
+            <div class="top">
+              <div>
+                <div class="title">M.S. in Physics</div>
+                <div class="where">University of Puerto Rico – Mayagüez · Department of Physics</div>
+              </div>
+              <div class="date">Aug 2024 – Expected May 2027</div>
+            </div>
+          </div>
+
+          <div class="cv-item">
+            <div class="top">
+              <div>
+                <div class="title">B.S. in Theoretical Physics</div>
+                <div class="where">University of Puerto Rico – Mayagüez · Department of Physics</div>
+                <div class="desc">Minor: Astronomy and Astrophysics</div>
+              </div>
+              <div class="date">Aug 2018 – May 2024</div>
+            </div>
           </div>
         </div>
+      </section>
+
+      <aside class="section">
+        <h2><span class="bar"></span> Skills & Research Interests</h2>
+
+        <div class="cv-item">
+          <div class="title">Research Interests</div>
+          <div class="skill-tags">
+            <span class="skill-tag">CMS Experiment</span>
+            <span class="skill-tag">Dark Matter Searches</span>
+            <span class="skill-tag">Dark QCD</span>
+            <span class="skill-tag">Emerging Jets</span>
+            <span class="skill-tag">LLPs</span>
+            <span class="skill-tag">Trigger Efficiency Modeling</span>
+            <span class="skill-tag">Anomaly Detection</span>
+            <span class="skill-tag">End-to-End Simulation</span>
+            <span class="skill-tag">ML for Detector Quality Monitoring</span>
+          </div>
+        </div>
+
+        <div class="cv-item">
+          <div class="title">Technical Skills</div>
+          <div class="skill-tags">
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">C++</span>
+            <span class="skill-tag">Bash</span>
+            <span class="skill-tag">ROOT</span>
+            <span class="skill-tag">PyTorch</span>
+            <span class="skill-tag">TensorFlow</span>
+            <span class="skill-tag">CMSSW</span>
+            <span class="skill-tag">MadGraph</span>
+            <span class="skill-tag">Pythia</span>
+            <span class="skill-tag">FastJet</span>
+            <span class="skill-tag">CMS DQM GUI</span>
+            <span class="skill-tag">Docker</span>
+            <span class="skill-tag">Singularity</span>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <!-- RESEARCH EXPERIENCE -->
+    <section class="section fade-up d3">
+      <h2><span class="bar"></span> Research Experience</h2>
+
+      <div class="cv-block">
+        <div class="cv-item">
+          <div class="top">
+            <div>
+              <div class="title">Trigger Efficiency Modeling and Uncertainty Estimation</div>
+              <div class="where">CMS Collaboration · Conducted at UPRM</div>
+              <div class="where">With guidance from Kevin Pedro, Associate Scientist at Fermilab</div>
+            </div>
+            <div class="date">Jan 2025 – Present</div>
+          </div>
+          <ul>
+            <li>
+              Developed a neural network-based CMS trigger-efficiency model for Emerging Jet signatures
+              in Run 3 analyses, producing smooth, differentiable efficiency estimates from generator-
+              and reconstruction-level observables.
+            </li>
+            <li>
+              Evaluated uncertainty estimates through training variations, model stability tests, and
+              control-region versus signal-region comparisons.
+            </li>
+            <li>
+              Built a reproducible Python analysis pipeline for data processing, training, validation,
+              and visualization.
+            </li>
+          </ul>
+        </div>
+
+        <div class="cv-item">
+          <div class="top">
+            <div>
+              <div class="title">Machine Learning for Data Quality Monitoring (ML4DQM)</div>
+              <div class="where">CMS Collaboration · Conducted at UPRM</div>
+              <div class="where">With guidance from Gabriele Benelli, LPC Researcher, and Richa Sharma, Postdoctoral Researcher</div>
+            </div>
+            <div class="date">Jun 2025 – Present</div>
+          </div>
+          <ul>
+            <li>
+              Applied unsupervised ML methods, specifically non-negative matrix factorization, to CMS
+              Data Quality Monitoring, focusing on anomaly detection in 2D tracking histograms.
+            </li>
+            <li>
+              Studied model sensitivity and stability across runs and detector conditions, evaluating
+              separation between nominal behavior and anomalous patterns in monitoring distributions.
+            </li>
+            <li>
+              Contributing to CMS ML4DQM tooling, including development and integration efforts for
+              DQMExplore and Reference Run Rank to support reference-run selection and data certification workflows.
+            </li>
+          </ul>
+        </div>
+
+        <div class="cv-item">
+          <div class="top">
+            <div>
+              <div class="title">End-to-End Simulation Studies with Conditional Generative Models</div>
+              <div class="where">Expand AI Research Group · Conducted at UPRM</div>
+              <div class="where">With supervision of Dr. Sudhir Malik and Dr. Arghya Chattopadhyay, Postdoctoral Researcher</div>
+            </div>
+            <div class="date">Sep 2025 – Present</div>
+          </div>
+          <ul>
+            <li>
+              Developed and evaluated end-to-end simulation pipelines using conditional flow-based
+              generative models linking generator- and reconstruction-level representations.
+            </li>
+            <li>
+              Explored extensions of the context vector with geometry- and physics-informed features
+              to improve control, robustness, and interpretability of generated events.
+            </li>
+          </ul>
+        </div>
+
+        <div class="cv-item">
+          <div class="top">
+            <div>
+              <div class="title">Exploring Complex Structure of Ancient Stars</div>
+              <div class="where">REU at Michigan State University · East Lansing, MI</div>
+              <div class="where">With supervision of Dr. Wolfgang Kerzendorf and Dr. Joshua Shields</div>
+            </div>
+            <div class="date">Jun 2023 – Jul 2023</div>
+          </div>
+          <ul>
+            <li>
+              Calibrated and validated the open-source radiative-transfer code STARDIS for stellar
+              atmosphere and spectral simulations using high-resolution solar reference data.
+            </li>
+            <li>
+              Compared observational spectra from the University of Tabriz siderostat and spectrograph
+              with synthetic STARDIS spectra to assess model fidelity and systematic effects.
+            </li>
+            <li>
+              Contributed to a broader effort to model and interpret spectra of extremely distant,
+              early-universe stars, including applications to objects such as Earendel.
+            </li>
+          </ul>
+        </div>
+
+        <div class="cv-item">
+          <div class="top">
+            <div>
+              <div class="title">A Statistical Analysis of Crab Pulsar Giant Pulse Rates</div>
+              <div class="where">Pulsar Science Collaboration · Conducted at UPRM</div>
+              <div class="where">With supervision of Dr. Graham Doskoch</div>
+            </div>
+            <div class="date">Jun 2023 – Jun 2024</div>
+          </div>
+          <ul>
+            <li>
+              Analyzed Crab pulsar giant pulse rates from radio observations, with emphasis on
+              signal-to-noise-based event selection and statistical robustness.
+            </li>
+            <li>
+              Quantified how S/N thresholds affect pulse-rate measurements, timing properties,
+              and frequency-dependent behavior.
+            </li>
+            <li>
+              Co-authored a refereed publication in The Astrophysical Journal reporting statistical
+              properties of Crab giant pulses.
+            </li>
+          </ul>
+        </div>
       </div>
+    </section>
+
+    <!-- PUBLICATION + WORKSHOPS -->
+    <section class="cv-grid fade-up d2">
+      <section class="section">
+        <h2><span class="bar"></span> Publication</h2>
+
+        <div class="cv-item publication">
+          <div class="title">A Statistical Analysis of Crab Pulsar Giant Pulse Rates</div>
+          <div class="desc">
+            G. M. Doskoch, A. Basuroski, K. Halley, A. Sookram,
+            <strong>I. Rodríguez Ramos</strong>, V. Nahata, Z. Rahman, M. Zhang,
+            A. Uhlmann, A. Lynch et al.,
+            “A Statistical Analysis of Crab Pulsar Giant Pulse Rates,”
+            <em>The Astrophysical Journal</em>, 2024.
+          </div>
+          <div class="desc">
+            DOI:
+            <a class="muted-link" href="https://doi.org/10.3847/1538-4357/ad6304" target="_blank" rel="noopener">
+              10.3847/1538-4357/ad6304
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <aside class="section">
+        <h2><span class="bar"></span> Workshops & Schools</h2>
+
+        <div class="compact-list">
+          <div class="compact-row">
+            <div class="name">Python for Analysis Workshop</div>
+            <div class="meta">Virtual · Dec 2025</div>
+          </div>
+
+          <div class="compact-row">
+            <div class="name">IRIS-HEP Software Basics Training</div>
+            <div class="meta">Virtual · Sep 2025</div>
+          </div>
+
+          <div class="compact-row">
+            <div class="name">CMS Data Analysis School</div>
+            <div class="meta">Fermilab · Jan 2025</div>
+          </div>
+
+          <div class="compact-row">
+            <div class="name">QuarkNet Workshop</div>
+            <div class="meta">University of Puerto Rico at Mayagüez · Nov 2022</div>
+          </div>
+
+          <div class="compact-row">
+            <div class="name">Plasma Physics Workshop</div>
+            <div class="meta">Princeton Plasma Physics Laboratory · Aug 2022</div>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <!-- TEACHING + PRESENTATIONS -->
+    <section class="cv-grid fade-up d3">
+      <section class="section">
+        <h2><span class="bar"></span> Teaching & Outreach</h2>
+
+        <div class="compact-list">
+          <div class="compact-row">
+            <div class="name">Conducted a Python training workshop for faculty</div>
+            <div class="meta">Dec 2025</div>
+          </div>
+
+          <div class="compact-row">
+            <div class="name">Led introductory Python training workshops for high school students</div>
+            <div class="meta">Nov 2025</div>
+          </div>
+
+          <div class="compact-row">
+            <div class="name">Taught a Bash shell tutorial as part of HSF training</div>
+            <div class="meta">Nov 2025</div>
+          </div>
+
+          <div class="compact-row">
+            <div class="name">Delivered a Bash shell tutorial for PURSUE interns</div>
+            <div class="meta">Jun 2025</div>
+          </div>
+
+          <div class="compact-row">
+            <div class="name">Physics Laboratory Instructor</div>
+            <div class="meta">Aug 2024 – May 2025</div>
+          </div>
+        </div>
+      </section>
+
+      <aside class="section">
+        <h2><span class="bar"></span> Presentations</h2>
+
+        <div class="compact-list">
+          <div class="compact-row">
+            <div class="name">Trigger Efficiency Modeling for Emerging Jets Using Neural Networks</div>
+            <div class="meta">Physics Research Symposium · UPRM · Sep 2025</div>
+          </div>
+
+          <div class="compact-row">
+            <div class="name">Exploring Complex Structures of Ancient Stars</div>
+            <div class="meta">Conference for Women in Physics · Clemson University · Jan 2024</div>
+          </div>
+
+          <div class="compact-row">
+            <div class="name">Exploring Complex Structures of Ancient Stars</div>
+            <div class="meta">Physics Research Symposium · UPRM · Sep 2023</div>
+          </div>
+
+          <div class="compact-row">
+            <div class="name">Exploring Complex Structures of Ancient Stars</div>
+            <div class="meta">Physics and Astronomy Research Symposium · Michigan State University · Jul 2023</div>
+          </div>
+
+          <div class="compact-row">
+            <div class="name">Exploring Complex Structures of Ancient Stars</div>
+            <div class="meta">Mid-Michigan Symposium for Undergraduate Research Experiences · Michigan State University · Jul 2023</div>
+          </div>
+        </div>
+      </aside>
     </section>
 
     <footer>

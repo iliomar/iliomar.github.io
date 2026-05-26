@@ -36,22 +36,6 @@
       .outreach-grid{ grid-template-columns: 1fr; }
     }
 
-    .badge-row{
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
-      margin-top: 14px;
-    }
-    .badge{
-      font-size: 12px;
-      padding: 7px 10px;
-      border-radius: 999px;
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,.05);
-      color: var(--muted);
-      font-weight: 700;
-    }
-
     .timeline{
       display:flex;
       flex-direction:column;
@@ -98,12 +82,6 @@
     }
 
     /* Outreach photo gallery */
-    .outreach-gallery{
-      margin-top: 18px;
-      padding-top: 18px;
-      border-top: 1px solid var(--line);
-    }
-
     .outreach-gallery .gallery-head{
       display:flex;
       justify-content:space-between;
@@ -126,8 +104,8 @@
 
     .photo-grid{
       display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 10px;
+      grid-template-columns: 1fr;
+      gap: 12px;
     }
 
     .photo-card{
@@ -166,31 +144,16 @@
       background: linear-gradient(180deg, transparent, rgba(0,0,0,.72));
     }
 
-    @media (max-width: 700px){
+    @media (max-width: 900px){
       .photo-grid{
         grid-template-columns: 1fr 1fr;
       }
     }
 
-    .side-card .desc{
-      color: var(--muted);
-      margin-top: 10px;
-    }
-    .callout{
-      margin-top: 12px;
-      padding: 14px;
-      border-radius: var(--radius);
-      border: 1px solid var(--line);
-      background: rgba(34,197,94,.08);
-      color: var(--muted);
-    }
-    .callout strong{ color: var(--text); }
-
-    .mini-actions{
-      margin-top: 14px;
-      display:flex;
-      flex-wrap:wrap;
-      gap: 12px;
+    @media (max-width: 600px){
+      .photo-grid{
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
@@ -288,46 +251,33 @@
             </ul>
           </div>
         </div>
-
-        <!-- Outreach photo gallery -->
-        <div class="outreach-gallery">
-          <div class="gallery-head">
-            <div class="gallery-title">Outreach moments</div>
-            <div class="gallery-note">Workshops · teaching · community</div>
-          </div>
-
-          <div class="photo-grid">
-            <figure class="photo-card">
-              <img src="images/pythonworkshop.JPG" alt="Me leading a Python workshop">
-              <figcaption class="photo-caption">Python Workshop for High School Teachers</figcaption>
-            </figure>
-
-            <figure class="photo-card">
-              <img src="images/python_WS2.png" alt="Participants working during a coding camp session">
-              <figcaption class="photo-caption">IRIS-HEP Coding Camp for High School Teachers</figcaption>
-            </figure>
-
-            <figure class="photo-card">
-              <img src="images/ML_ws.JPG" alt="Me presenting machine-learning material">
-              <figcaption class="photo-caption">Introduction to ML</figcaption>
-            </figure>
-          </div>
-        </div>
       </section>
 
-      <!-- RIGHT: philosophy + next -->
-      <aside class="section side-card">
-        <h2><span class="bar"></span> Why I do outreach</h2>
-        <p class="desc">
-          Although I consider myself shy on public speaking, I genuinely enjoy making technical tools and science concepts feel approachable.
-          A big part of my motivation is giving people the “I can do this” moment — because that feeling
-          changes how someone sees themselves.
-        </p>
+      <!-- RIGHT: photos -->
+      <aside class="section outreach-gallery">
+        <div class="gallery-head">
+          <div>
+            <h2><span class="bar"></span> Outreach Moments</h2>
+          </div>
+          <div class="gallery-note">Workshops · teaching · community</div>
+        </div>
 
+        <div class="photo-grid">
+          <figure class="photo-card">
+            <img src="images/pythonworkshop.JPG" alt="Me leading a Python workshop">
+            <figcaption class="photo-caption">Python Workshop for High School Teachers</figcaption>
+          </figure>
 
-        <p class="desc" style="margin-top:12px; font-size:13px;">
-          I’m always looking for new ways to contribute and grow my outreach skills.
-        </p>
+          <figure class="photo-card">
+            <img src="images/python_WS2.png" alt="Participants working during a coding camp session">
+            <figcaption class="photo-caption">IRIS-HEP Coding Camp for High School Teachers</figcaption>
+          </figure>
+
+          <figure class="photo-card">
+            <img src="images/ML_ws.JPG" alt="Me presenting machine-learning material">
+            <figcaption class="photo-caption">Introduction to ML</figcaption>
+          </figure>
+        </div>
       </aside>
     </section>
 
